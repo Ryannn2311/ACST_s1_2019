@@ -1,0 +1,43 @@
+#Q1
+#a
+#setup AWS
+Ryan-s-Macbook:~ Ryann$ cd downloads
+Ryan-s-Macbook:downloads Ryann$ ssh -i 45542899.pem ubuntu@ec2-13-238-161-28.ap-southeast-2.compute.amazonaws.com
+#wget command
+ubuntu@ip-172-31-25-138:~$ wget https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-10-shell-programming--triplet-stop.sh
+
+#b
+#access nano to edit file
+ubuntu@ip-172-31-25-138:~$ nano
+#nano command
+#!/bin/bash
+# save as triplet-stop.sh
+# splits a sequence into triplets
+x=0
+while [ -n "${1:$x:3}" ]; do
+  seq=$seq${1:$x:3}" "
+  x=$(expr $x + 3)
+  if [ ${1:$x:3} == taa ] && [ $x –ge 6 ]; then
+    break
+  fi
+done
+echo "$seq"
+
+#Q2
+#a
+ubuntu@ip-172-31-25-138:~$ wget https://ilearn.mq.edu.au/pluginfile.php/5682137/mod_resource/content/2/tutes.txt
+#checking
+ubuntu@ip-172-31-25-138:~$ ls
+
+#b
+ubuntu@ip-172-31-25-138:~$ sed -n /WED/p tutes.txt
+
+#Q3
+#a
+egrep "ˆ[ˆ ]+ [ˆ ]+ [ˆ ]+$ " tutes.txt
+#b
+egrep -e "-[0-9]+ " tutes.txt 
+#c
+egrep " -?([0-9]+\.?[0-9] ∗ |[0-9] ∗ \.[0-9]+) " tutes.txt 
+#d
+egrep ‘ hydrogenase’ tutes.txt
