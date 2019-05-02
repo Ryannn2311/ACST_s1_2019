@@ -1,0 +1,25 @@
+#Connect AWS account:
+cd downloads
+ssh -i 45542899.pem ubuntu@ec2-13-238-161-28.ap-southeast-2.compute.amazonaws.com
+#Question 1: upload file structure.pdb to AWS account:
+wget "http://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-11-regex--structure.pdb"
+mv chapter-11-regex--structure.pdb structure.pdb
+ls
+#a
+sed 's/Beisel/Weisel/' structure.pdb
+#b
+sed '1,3d' structure.pdb
+#c
+sed -n '5,10p' structure.pdb
+#d
+sed '/MET/d' structure.pdb
+#e
+sed -n '/HELIX.*ILE/p' structure.pdb
+#f
+sed '/^H/s/$/***/' structure.pdb
+#g
+sed '/^\s*$/d' jabberwocky.txt
+
+
+
+
