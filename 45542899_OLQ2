@@ -18,6 +18,9 @@ sed -n '/HELIX.*ILE/p' structure.pdb
 #f
 sed '/^H/s/$/***/' structure.pdb
 #g
+exit
+cd downloads
+scp -i 45542899.pem jabberwocky.txt ubuntu@ec2-13-238-161-28.ap-southeast-2.compute.amazonaws.com:
 sed '/^\s*$/d' jabberwocky.txt
 
 
