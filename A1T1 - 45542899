@@ -1,0 +1,82 @@
+#Question 1:
+cd downloads
+ssh -i 45542899.pem ubuntu@ec2-13-238-161-28.ap-southeast-2.compute.amazonaws.com
+sed 's/Huck/HucK/g' twain.txt > test.txt
+grep -c "Huck" test.txt
+
+#Question 2:
+nano userargument.py
+import sys
+import stdio
+
+stdio.write('Hi, ')
+stdio.write(sys.argv[1])
+stdio.writeln('. How are you?')
+
+python3 userargument.py 
+python3 userargument.py @!&^%
+python3 userargument.py 1234
+python3 userargument.py Bob
+userargument.py Bob
+python3 userargument.py Alice Bob
+
+#Question 3:
+nano question3.py 
+year=int(input('Enter a year: '))
+if (year % 4)==0:
+    if (year % 100)==0:
+        if (year % 400)==0:
+            print('%d is a leap year.' %(year))
+        else:
+            print('%d is not a leap year.' %(year))
+    else:
+        print('%d is a leap year.' %(year))
+else:
+    print('%d is not a leap year.' %(year))
+python3 question3.py
+
+#Question 4:
+nano question4.py
+import random as rd
+a = round(float(input("Enter the number of a: ")))
+b = round(float(input("Enter the number of b: ")))
+if a<b:
+        print('The random integer between %d and %d is %d'%(a,b,rd.randint(a,b)))
+else:
+        print('The random integer between %d and %d is %d'%(b,a,rd.randint(b,a)))
+python3 question4.py
+
+#Question 5:
+nano question5.py
+month_list=('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
+m=int(input('Enter an integer for month m = '))
+d=int(input('Enter an integer for day d = '))
+if (m==3 and d>=20 and d<=31) or (m==6 and d>=1 and d<=20) or (m==4 and d>=1 and d<=30) or (m==5 and d>=1$
+    print ('True')
+    print ('The date is ' + month_list[m-1] +' %d.' %(d))
+elif (m<1 or m>12):
+    print ('False')
+    print ('%d is an invalid month input.' %(m))
+elif m==2 and (d<1 or d>29):
+    print ('False')
+    print ('%d is an invalid day of ' %(d) + month_list[m-1] +'.')
+elif (m==1 or m==3 or m==5 or m==7 or m==8 or m==10 or m==12) and (d<1 or d>31):
+    print ('False')
+    print ('%d is an invalid day of ' %(d) + month_list[m-1] +'.')
+elif (m==4 or m==6 or m==9 or m==11) and (d<1 or d>30):
+    print ('False')
+    print ('%d is an invalid day of ' %(d) + month_list[m-1] +'.')
+else:
+    print ('False')
+python3 question4.py
+
+#Question 6:
+nano question6.py
+print (‘Calculate the desired value')
+import math
+rate=float(input('Interest rate compounded continuously r= '))
+years=int(input('The number of years t= '))
+principal=float(input('The principal P= '))
+value=principal*math.e**(rate*years)
+print ('After %d years, the desired value will be $%.2f' %(years, value))
+python3 question6.py
